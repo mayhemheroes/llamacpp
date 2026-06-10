@@ -1,0 +1,7 @@
+project: llamacpp
+target: fuzz_tokenizer_qwen2
+cmds:
+  - cmd: /mayhem/fuzz_tokenizer_qwen2 -detect_leaks=0
+    libfuzzer: true
+    cwd: /dev/shm
+    dictionary: /mayhem/mayhem/fuzz_grammar.dict

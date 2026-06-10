@@ -1,0 +1,9 @@
+project: llamacpp
+target: fuzz_structured
+testsuite:  # mayhem-lint: keep-testsuite -- GGUF model loader; random bytes miss the GGUF magic and cover minimal code without a valid seed
+  - file:///mayhem/mayhem/testsuite/fuzz_structured
+cmds:
+  - cmd: /mayhem/fuzz_structured -detect_leaks=0
+    libfuzzer: true
+    cwd: /dev/shm
+    dictionary: /mayhem/mayhem/fuzz_load_model.dict

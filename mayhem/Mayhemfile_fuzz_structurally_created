@@ -1,0 +1,9 @@
+project: llamacpp
+target: fuzz_structurally_created
+testsuite:  # mayhem-lint: keep-testsuite — format-gated: size<256 check requires the build-generated dummy.gguf seed (>=256 bytes)
+  - file:///mayhem/mayhem/testsuite/fuzz_structurally_created
+cmds:
+  - cmd: /mayhem/fuzz_structurally_created -detect_leaks=0
+    libfuzzer: true
+    cwd: /dev/shm
+    dictionary: /mayhem/mayhem/fuzz_load_model.dict

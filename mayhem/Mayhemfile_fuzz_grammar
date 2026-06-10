@@ -1,0 +1,7 @@
+project: llamacpp
+target: fuzz_grammar
+cmds:
+  - cmd: /mayhem/fuzz_grammar -detect_leaks=0
+    libfuzzer: true
+    cwd: /dev/shm
+    dictionary: /mayhem/mayhem/fuzz_grammar.dict
